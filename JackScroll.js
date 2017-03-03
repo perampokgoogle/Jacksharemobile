@@ -1,0 +1,1 @@
+function hidepeekaboo(){document.getElementById("shareOnscroll").style.display="none"}myID=document.getElementById("shareOnscroll");var myScrollFunc=function(){var e=window.scrollY;e>=800?myID.className="shareOnscroll show":myID.className="shareOnscroll hide"};window.addEventListener("scroll",myScrollFunc);
