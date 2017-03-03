@@ -1,0 +1,75 @@
+Silahkan simpan kode CSS di bawah ini di atas kode </head>
+
+<b:if cond='data:blog.isMobileRequest == &quot;true&quot; and data:blog.pageType == &quot;item&quot;'>
+<style type='text/css'>
+.shareOnscroll{position:fixed;bottom:0;left:50%;margin-left:-45%;z-index:100000;background-color:#FFF;padding:20px;width:90%;height:auto;border-radius:3px 3px 0 0;box-shadow:0 0 15px rgba(0,0,0,.1);-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
+.shareOnscroll p{margin:0;padding:0}
+.shareOnscroll .fb{margin-top:15px;}
+.share-facebook a{color:#fff}
+.btn,.btn:active{background-image:none}
+.parser,.btn,.btn-link{font-weight:400}
+.btn{display:inline-block;padding:6px 12px;margin-bottom:5px;font-size:14px;line-height:1.42857143;text-align:center;white-space:nowrap;vertical-align:middle;-ms-touch-action:manipulation;touch-action:manipulation;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;border:1px solid transparent;border-radius:4px}
+.btn:active:focus,.btn:focus{outline:0;}
+.btn:focus,.btn:hover{color:#333;text-decoration:none;outline:0;}
+.btn:active{outline:0;-webkit-box-shadow:inset 0 3px 5px rgba(0,0,0,.125);box-shadow:inset 0 3px 5px rgba(0,0,0,.125)}
+.btn-facebook{color:#fff!important;background-color:#3a579a;}
+.btn-facebook:focus{color:#fff;background-color:#286090;}
+.btn-facebook:active,.btn-facebook:hover{color:#fff;background-color:#286090;}
+.share-facebook .label{margin-left:15px}
+.shareOnscroll-close{position:absolute;top:0;right:0;font-size:26px;width:20px;font-weight:300;height:20px;text-align:center;line-height:20px;cursor:pointer}
+.hide{display:none}
+.show{display:block;-webkit-animation-name:slideInUp;animation-name:slideInUp;-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-fill-mode:both;animation-fill-mode:both}
+@-webkit-keyframes slideInUp{0%{-webkit-transform:translateY(100%);transform:translateY(100%);visibility:visible}
+100%{-webkit-transform:translateY(0);transform:translateY(0)}
+}
+@keyframes slideInUp{0%{-webkit-transform:translateY(100%);transform:translateY(100%);visibility:visible}
+100%{-webkit-transform:translateY(0);transform:translateY(0)}
+}
+</style>
+</b:if>
+
+Kemudian silahkan simpan kode javascript di bawah ini di atas kode </body>
+
+<b:if cond='data:blog.isMobileRequest == &quot;true&quot; and data:blog.pageType == &quot;item&quot;'>
+<script type='text/javascript'>
+//<![CDATA[
+function hidepeekaboo(){document.getElementById("shareOnscroll").style.display="none"}myID=document.getElementById("shareOnscroll");var myScrollFunc=function(){var e=window.scrollY;e>=800?myID.className="shareOnscroll show":myID.className="shareOnscroll hide"};window.addEventListener("scroll",myScrollFunc);
+//]]>
+</script>
+</b:if>
+
+Kemudian silahkan cari kode <b:includable id='post' var='post'> lalu simpan kode di bawah ini di atas kode penutup </b:includable>
+
+<b:if cond='data:blog.isMobileRequest == &quot;true&quot; and data:blog.pageType == &quot;item&quot;'>
+<div class='shareOnscroll hide' id='shareOnscroll'>
+<p>Share this post with your friends!</p>
+<div class='fb'>
+<div class='share-facebook'>
+<a expr:href='&quot;https://www.facebook.com/dialog/share?app_id=1195729700525408&amp;display=popup&amp;href=&quot; + data:post.url + &quot;&amp;redirect_uri=&quot; + data:post.url'><span class='btn btn-facebook btn-lg'><i aria-hidden='true' class='fa fa-facebook'/> <span class='label'>Share on Facebook</span></span></a>
+</div>
+</div>
+<span class='shareOnscroll-close' onclick='hidepeekaboo()'>&amp;times;</span>
+</div>
+</b:if>
+
+Sehingga penampakannya seperti di bawah ini
+
+<b:includable id='post' var='post'>
+.........
+.........
+.........
+
+<b:if cond='data:blog.isMobileRequest == &quot;true&quot; and data:blog.pageType == &quot;item&quot;'>
+<div class='shareOnscroll hide' id='shareOnscroll'>
+<p>Share this post with your friends!</p>
+<div class='fb'>
+<div class='share-facebook'>
+<a expr:href='&quot;https://www.facebook.com/dialog/share?app_id=1195729700525408&amp;display=popup&amp;href=&quot; + data:post.url + &quot;&amp;redirect_uri=&quot; + data:post.url'><span class='btn btn-facebook btn-lg'><i aria-hidden='true' class='fa fa-facebook'/> <span class='label'>Share on Facebook</span></span></a>
+</div>
+</div>
+<span class='shareOnscroll-close' onclick='hidepeekaboo()'>&amp;times;</span>
+</div>
+</b:if>
+</b:includable>
+
+Dan pastikan blog Anda sudah menggunakan Font Awesome.
